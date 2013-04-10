@@ -20,6 +20,16 @@ import requests
 # print the_page
 #-------------------------------------------------------------------------------------#
 
-payload = {'q': 'Hello', 'langpair': 'en|it'}
-r = requests.get("http://api.mymemory.translated.net/get", params=payload)
-print r.text
+
+
+def translator(from_l, to_l, string):
+    language_pair = from_l + '|' + to_l
+    parameters = {'q': string, 'langpair': language_pair}
+    r = requests.get("http://api.mymemory.translated.net/get", params=parameters)
+    print r.text
+
+def main():
+    translator(sys.argv[1], sys.argv[2], sys.argv[3])
+
+if __name__=='__main__':
+    main()
