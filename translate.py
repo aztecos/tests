@@ -25,9 +25,9 @@ import argparse
 # print the_page
 #-------------------------------------------------------------------------------------#
 
-def translator(from_l, to_l, string):
-    language_pair = from_l + '|' + to_l
-    parameters = {'q': string, 'langpair': language_pair}
+def translator(f, t, s):
+    language_pair = f + '|' + t
+    parameters = {'q': s, 'langpair': language_pair}
     r = requests.get("http://api.mymemory.translated.net/get", params=parameters)
     json_data = r.text
     data = json.loads(json_data)
